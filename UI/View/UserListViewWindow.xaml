@@ -1,0 +1,20 @@
+﻿<Window x:Class="UI.View.UserListViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="User List" Height="300" Width="300">
+    <Grid Margin="5,8,5,8">
+        <DataGrid Name="DgUsers" 
+                  AutoGenerateColumns="False"
+                  Margin="5,8,5,8"
+                  ItemsSource="{Binding Path=UsersList, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="Auto" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="First name" Width="Auto" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last name" Width="Auto" Binding="{Binding Path=LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Role" Width="Auto" Binding="{Binding Path=Role}"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
+

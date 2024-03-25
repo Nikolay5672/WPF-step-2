@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="UI.View.UserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="382.8" d:DesignWidth="386">
+    <Grid Margin="5,8,5,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="User Management" 
+                   Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2" 
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center">
+        </TextBlock>
+
+        <TextBlock 
+            Text="Id:"
+            Grid.Row="1"
+            Grid.Column="0" Margin="5,8,5,8">
+        </TextBlock>
+
+        <TextBlock 
+            Text="First name:"
+            Grid.Row="2"
+            Grid.Column="0" Margin="5,8,5,8">
+        </TextBlock>
+
+        <TextBlock 
+            Text="Last name:"
+            Grid.Row="3"
+            Grid.Column="0" Margin="5,8,5,8">
+        </TextBlock>
+
+        <TextBlock 
+            Text="Role:"
+            Grid.Row="4"
+            Grid.Column="0" Margin="5,8,5,8">
+        </TextBlock>
+
+        <TextBox 
+            Name="TxtId" 
+            Grid.Row="1"
+            Grid.Column="1" Margin="5,8,5,8"
+            Text="{Binding Path=CurrentUser.Id, Mode=TwoWay}">
+        </TextBox>
+
+        <TextBox 
+            Name="TxtFirstName" 
+            Grid.Row="2"
+            Grid.Column="1" Margin="5,8,5,8"
+            Text="{Binding Path=CurrentUser.FirstName, Mode=TwoWay}">
+        </TextBox>
+
+        <TextBox 
+            Name="TxtLastName" 
+            Grid.Row="3"
+            Grid.Column="1" Margin="5,8,5,8"
+            Text="{Binding Path=CurrentUser.LastName, Mode=TwoWay}">
+        </TextBox>
+
+        <TextBox 
+            Name="TxtRole" 
+            Grid.Row="4"
+            Grid.Column="1" Margin="5,8,5,8"
+            Text="{Binding Path=CurrentUser.Role, Mode=TwoWay}">
+        </TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1" Margin="5,8,5,8">
+            <Button Name="btnAdd" Content="ADD" Margin="5,8,5,8" Command="{Binding Path=SaveCommand}"></Button>
+            <Button Name="btnSearch" Content="SEARCH" Margin="5,8,5,8" Command="{Binding Path=SearchCommand}"></Button>
+            <Button Name="btnUpdate" Content="UPDATE" Margin="5,8,5,8" Command="{Binding Path=UpdateCommand}"></Button>
+            <Button Name="btnDelete" Content="DELETE" Margin="5,8,5,8" Command="{Binding Path=DeleteCommand}"></Button>
+            <Button Name="BtnViewUsers" Content="View Users" Click="BtnViewUsers_Click" Margin="5,8,5,8"/>
+
+
+</StackPanel>
+
+        <TextBlock 
+            Name="TxtBlockMessage"
+            Grid.Row="6"
+            Grid.Column="1"
+            Text="{Binding Path=Message}">
+        </TextBlock>
+
+        <DataGrid 
+            Name="DgUsers" 
+            AutoGenerateColumns="False"
+            Grid.Row="7"
+            Grid.Column="1" Margin="5,8,5,8"
+            ItemsSource="{Binding Path=UsersList, Mode=TwoWay}" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="Auto" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="First name" Width="Auto" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last name" Width="Auto" Binding="{Binding Path=LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Role" Width="Auto" Binding="{Binding Path=Role}"></DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+
+    </Grid>
+</UserControl>
