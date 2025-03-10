@@ -1,4 +1,5 @@
 WPF Expense Tracking Application (MVVM & ICommand Implementation)
+
 The WPF Expense Tracking Application is a C#-based project that demonstrates the Model-View-ViewModel (MVVM) architecture and the use of ICommand for handling commands in WPF applications. This project is part of Exercise No. 6 for "ПС" and focuses on data binding and command-based interactions.
 
 Key Features:
